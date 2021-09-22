@@ -1,5 +1,6 @@
-import "./App.css";
 import Main from "./pages/Main";
+import Search from "./pages/Search";
+import History from "./pages/History";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
@@ -7,6 +8,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/history" component={History} />
         </Switch>
       </Router>
     </>
