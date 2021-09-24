@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Results from "../components/results/Results";
+import History from "../components/History";
 function Search() {
-  const [keywords, setKeywords] = useState("");
+  const [keywords, setKeywords] = useState([]);
   const [fetchedData, setFetchedData] = useState([]);
   const [dataCheck, setDataCheck] = useState(false);
+  const [historyData, setHistoryData] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -25,7 +27,12 @@ function Search() {
         console.log(err);
       });
   };
-
+  const handleHistory = (e) => {
+    if (keywords) {
+      console.log(keywords, "-----keyword data-----");
+      setHistoryData(true);
+    }
+  };
   const handleChange = (e) => {
     e.preventDefault();
     setKeywords(e.target.value);
@@ -67,7 +74,10 @@ function Search() {
           Hacker News with data
         </header>
         <a href="/history">
-          <button className="btn btn-primary btn-lg me-5 mt-5 position-absolute top-0 end-0">
+          <button
+            onChange={handleHistory}
+            className="btn btn-primary btn-lg me-5 mt-5 position-absolute top-0 end-0"
+          >
             History
           </button>
         </a>
@@ -89,6 +99,9 @@ function Search() {
         <div className="list-group position-absolute top-50 start-50 translate-middle col-sm-7"></div>
       </>
     );
+  }
+  if (dataCheck & historyData) {
+    return <History data={keywords} />;
   }
 }
 
