@@ -1,7 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { searchIt } from "../utils/api";
+import React, { useState } from "react";
 import Results from "../components/results/Results";
 function Search() {
   const [keywords, setKeywords] = useState("");
@@ -68,6 +66,11 @@ function Search() {
         <header className="fs-1 text-white position-absolute top-15 start-50 translate-middle">
           Hacker News with data
         </header>
+        <a href="/history">
+          <button className="btn btn-primary btn-lg me-5 mt-5 position-absolute top-0 end-0">
+            History
+          </button>
+        </a>
         <form
           className="mt-5 bg-dark navbar-form d-flex justify-content-center"
           onSubmit={handleSubmit}
