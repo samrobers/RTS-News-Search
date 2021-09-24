@@ -28,6 +28,7 @@ function Search() {
       });
   };
   const handleHistory = (e) => {
+    console.log("handle history are you here");
     if (keywords) {
       console.log(keywords, "-----keyword data-----");
       setHistoryData(true);
@@ -73,14 +74,14 @@ function Search() {
         <header className="fs-1 text-white position-absolute top-15 start-50 translate-middle">
           Hacker News with data
         </header>
-        <a href="/history">
-          <button
-            onChange={handleHistory}
-            className="btn btn-primary btn-lg me-5 mt-5 position-absolute top-0 end-0"
-          >
-            History
-          </button>
-        </a>
+
+        <button
+          onClick={handleHistory}
+          className="btn btn-primary btn-lg me-5 mt-5 position-absolute top-0 end-0"
+        >
+          History
+        </button>
+
         <form
           className="mt-5 bg-dark navbar-form d-flex justify-content-center"
           onSubmit={handleSubmit}
@@ -100,7 +101,8 @@ function Search() {
       </>
     );
   }
-  if (dataCheck & historyData) {
+  console.log(dataCheck, "DATA---CHECk", historyData, "----History data");
+  if (keywords) {
     return <History data={keywords} />;
   }
 }
