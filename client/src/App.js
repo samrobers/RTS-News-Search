@@ -1,6 +1,6 @@
 import Main from "./pages/Main";
 import Search from "./pages/Search";
-import History from "./components/History";
+import History from "./pages/History";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { StoreProvider } from "./store/Store";
 

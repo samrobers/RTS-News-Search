@@ -1,17 +1,31 @@
 # RTS-News-Search
 
-Using the Javascript framework of your choice, build an application that has two pages users can navigate to:
+![](Image/PreviewHome.PNG)
 
-“/search” lets the user search the Hacker News Algolia API and displays a list of results (https://hn.algolia.com/api)
-“/history” shows the users a list of their past searches from this session (these do not need to persist through refresh).
-We're looking to see what you know in Javascript, querying an API, and state management. We're interested in whether you can write clean code and have the ability to learn/understand new technologies. We don't care about design/UI (for this project).
+# Description
 
-Resources:
+Search Application allowing queries using input and to viewing search history
 
-HN search API:
-https://hn.algolia.com/api
-Example Javascript Frameworks:
-https://reactjs.org/docs
-https://angular.io/docs
-https://vuejs.org/v2/guide/
+## Technology
 
+- Axios
+- React
+
+# Installation
+
+STEPS:
+-'npm i' to install node modules from top level, no need to navigate to client Directory
+
+-npm run start from top level to launch 
+
+# Authors
+
+samrobers (Sam Roberson)
+
+# License
+
+Open Source
+
+# Links
+
+GitHub Repository: https://github.com/samrobers/RTS-News-Search

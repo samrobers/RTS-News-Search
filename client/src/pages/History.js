@@ -8,7 +8,7 @@ function History() {
       <h1 className="text-white position-absolute top-0 start-50 translate-middle-x bg-dark">
         History
       </h1>
-      <a href="/home" className="">
+      <a href="/" className="">
         <button className="btn  btn-primary position-absolute top-0 end-0 me-5 mt-5 btn-lg">
           Home
         </button>
