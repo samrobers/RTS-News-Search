@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Results from "../components/results/Results";
 import { ADD_TO_HISTORY } from "../store/Actions";
 import { useStoreContext } from "../store/Store";
-import { searchHackerApi } from "../utils/api";
 function Search() {
   const [state, dispatch] = useStoreContext();
   const [keywords, setKeywords] = useState();
