@@ -2,11 +2,11 @@ import Main from "./pages/Main";
 import Search from "./pages/Search";
 import History from "./components/History";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { StoreProvider } from "./store/Store";
 
 function App() {
   return (
-    <>
+    <StoreProvider>
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />
@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/history" component={History} />
         </Switch>
       </Router>
-    </>
+    </StoreProvider>
   );
 }
 

@@ -1,14 +1,20 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import Results from "../components/results/Results";
-import History from "../components/History";
+import { ADD_TO_HISTORY } from "../store/Actions";
+import { useStoreContext } from "../store/Store";
+import { searchHackerApi } from "../utils/api";
 function Search() {
-  const [keywords, setKeywords] = useState([]);
+  const [state, dispatch] = useStoreContext();
+  const [keywords, setKeywords] = useState();
   const [fetchedData, setFetchedData] = useState([]);
   const [dataCheck, setDataCheck] = useState(false);
-  const [historyData, setHistoryData] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+    let History = state.history;
+    History.push(keywords);
+    dispatch({ type: ADD_TO_HISTORY, payload: History });
     axios
       .get(`http://hn.algolia.com/api/v1/search?query=${keywords}`)
       .then((res) => {
@@ -26,13 +32,6 @@ function Search() {
       .catch((err) => {
         console.log(err);
       });
-  };
-  const handleHistory = (e) => {
-    console.log("handle history are you here");
-    if (keywords) {
-      console.log(keywords, "-----keyword data-----");
-      setHistoryData(true);
-    }
   };
   const handleChange = (e) => {
     e.preventDefault();
@@ -74,14 +73,13 @@ function Search() {
         <header className="fs-1 text-white position-absolute top-15 start-50 translate-middle">
           Hacker News with data
         </header>
-
-        <button
-          onClick={handleHistory}
+        <Link
+          to="/history"
+          type="button"
           className="btn btn-primary btn-lg me-5 mt-5 position-absolute top-0 end-0"
         >
           History
-        </button>
-
+        </Link>
         <form
           className="mt-5 bg-dark navbar-form d-flex justify-content-center"
           onSubmit={handleSubmit}
@@ -100,10 +98,6 @@ function Search() {
         <div className="list-group position-absolute top-50 start-50 translate-middle col-sm-7"></div>
       </>
     );
-  }
-  console.log(dataCheck, "DATA---CHECk", historyData, "----History data");
-  if (keywords) {
-    return <History data={keywords} />;
   }
 }
 
