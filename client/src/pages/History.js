@@ -2,13 +2,12 @@ import React from "react";
 import { useStoreContext } from "../store/Store";
 function History() {
   const [state, dispatch] = useStoreContext();
-  console.log(state.history, " ---this is state history");
   return (
     <>
       <h1 className="text-white position-absolute top-0 start-50 translate-middle-x bg-dark">
         History
       </h1>
-      <a href="/" className="">
+      <a href="/">
         <button className="btn  btn-primary position-absolute top-0 end-0 me-5 mt-5 btn-lg">
           Home
         </button>

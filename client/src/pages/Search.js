@@ -17,16 +17,8 @@ function Search() {
     axios
       .get(`http://hn.algolia.com/api/v1/search?query=${keywords}`)
       .then((res) => {
-        console.log(
-          res,
-          "the inital response after fetch call in handle submit"
-        );
         setFetchedData(res.data.hits);
         setDataCheck(true);
-        console.log(
-          fetchedData,
-          "this is fetched data state update after drilled to hits"
-        );
       })
       .catch((err) => {
         console.log(err);
@@ -35,9 +27,7 @@ function Search() {
   const handleChange = (e) => {
     e.preventDefault();
     setKeywords(e.target.value);
-    console.log(keywords, "----keywords---");
   };
-  console.log(fetchedData, "-----fetched data");
   if (!dataCheck) {
     return (
       <>
